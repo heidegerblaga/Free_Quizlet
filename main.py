@@ -3,6 +3,7 @@
 file = open("czasowniki.txt",'r+')
 
 dic = []
+base = [ ]
 
 
 for line in file.readlines():
@@ -11,11 +12,21 @@ for line in file.readlines():
 
 class Word():
 
+
+
+    def add_point(self):
+        self.point=+1
+
+    def subtract_point(self):
+        self.point=-1
+
+
     def __init__(self,polish,infinitive,simple_past,past_participle):
         self.polish = polish
         self.infinitive = infinitive
         self.simple_past = simple_past
         self.past_participle = past_participle
+        self.point = 0
 
     def __repr__(self):
         return f'''\nsłowo : {self.polish}
@@ -23,27 +34,13 @@ class Word():
          \rsimple past : {self.simple_past}
           \rpast participle : {self.past_participle}'''
 
-
-base = [ ]
-
-
 for i in range(0,len(dic)-2):
     base.append(Word(dic[i][0], dic[i][2], dic[i][4], dic[i][6]))
     #print(dic[i][2])
 
-
-
-
-
-
-
-
 class Quiz():
 
     def __init__(self):
-
-        i = 0
-
 
         while True:
 
@@ -55,12 +52,10 @@ class Quiz():
                 ans_past_participle =''
                 print(f'{base[i].polish} -  ')
 
-                while((ans_infinitive == '')and
-                      (ans_simple_past=='')and
-                      (ans_past_participle=='')):
-                    ans_infinitive=input()
-                    ans_simple_past=input()
-                    ans_past_participle=input()
+
+                ans_infinitive=input()
+                ans_simple_past=input()
+                ans_past_participle=input()
 
                 print(f'to {ans_infinitive} - {ans_simple_past} - {ans_past_participle} ')
 
@@ -68,13 +63,13 @@ class Quiz():
                         (ans_simple_past==base[i].simple_past)and
                         (ans_past_participle==base[i].past_participle)):
                     print('To poprawna odpowiedz ! trzymaj tak dalej ! :)')
+                    base[i].add_point()
+                    input()
 
                 else:
                     print(f'Blad ! poprawna odpowiedz : {base[i].infinitive} - {base[i].simple_past} - {base[i].past_participle}')
-
-
-
-
+                    base[i].subtract_point()
+                    input()
 
 
 
