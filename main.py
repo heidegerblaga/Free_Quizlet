@@ -29,25 +29,48 @@ base = [ ]
 
 for i in range(0,len(dic)-2):
     base.append(Word(dic[i][0], dic[i][2], dic[i][4], dic[i][6]))
-    print(base[i])
-    pass
+    #print(dic[i][2])
+
+
+
+
 
 
 
 
 class Quiz():
-    def __init__(self,dictionary):
-        self.dictionary = dictionary
 
-    def quiz(self):
-        live = 3
+    def __init__(self):
+
         i = 0
-        answer = ''
-
-        while live!=0:
-            print(f'{self.dictionary[i]} - {input(answer)}')
 
 
+        while True:
+
+
+            for i in range(0,len(base)-1):
+
+                ans_infinitive =''
+                ans_simple_past =''
+                ans_past_participle =''
+                print(f'{base[i].polish} -  ')
+
+                while((ans_infinitive == '')and
+                      (ans_simple_past=='')and
+                      (ans_past_participle=='')):
+                    ans_infinitive=input()
+                    ans_simple_past=input()
+                    ans_past_participle=input()
+
+                print(f'to {ans_infinitive} - {ans_simple_past} - {ans_past_participle} ')
+
+                if ((ans_infinitive==base[i].infinitive)and
+                        (ans_simple_past==base[i].simple_past)and
+                        (ans_past_participle==base[i].past_participle)):
+                    print('To poprawna odpowiedz ! trzymaj tak dalej ! :)')
+
+                else:
+                    print(f'Blad ! poprawna odpowiedz : {base[i].infinitive} - {base[i].simple_past} - {base[i].past_participle}')
 
 
 
@@ -55,11 +78,4 @@ class Quiz():
 
 
 
-
-
-
-
-
-
-
-
+Quiz()
