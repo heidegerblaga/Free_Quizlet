@@ -59,13 +59,13 @@ trzymac – hold – held – held
 zranic – hurt – hurt – hurt
 trzymac – keep – kept – kept
 klekac – kneel – knelt – knelt
-robic na drutach – knit – knit – knit
+robic_na_drutach – knit – knit – knit
 wiedziec – know – knew – known
 klasc – lay – laid – laid
 prowadzic – lead – led – led
-opierac sie – lean – leaned – leande
+opierac_sie – lean – leaned – leande
 skakac – leap – leaped – leaped
-uczyc sie – learn – learnt – learnt
+uczyc_sie – learn – learnt – learnt
 opuscic – leave – left – left
 pozyczac – lend – lent – lent
 pozwalac – let – let – let

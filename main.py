@@ -1,13 +1,9 @@
 # -*- coding: utf-8 -*-
 
-file = open("czasowniki.txt",'r+')
-
-dic = []
-base = [ ]
+from random import randint
+from model import Lern
 
 
-for line in file.readlines():
-    dic.append(line.split())
 
 
 class Word():
@@ -50,7 +46,8 @@ class Quiz():
                 ans_infinitive =''
                 ans_simple_past =''
                 ans_past_participle =''
-                print(f'{base[i].polish} -  ')
+                j = randint(0,len(base)-1)
+                print(f'{base[j].polish} -  ')
 
 
                 ans_infinitive=input()
@@ -59,18 +56,17 @@ class Quiz():
 
                 print(f'to {ans_infinitive} - {ans_simple_past} - {ans_past_participle} ')
 
-                if ((ans_infinitive==base[i].infinitive)and
-                        (ans_simple_past==base[i].simple_past)and
-                        (ans_past_participle==base[i].past_participle)):
+                if ((ans_infinitive==base[j].infinitive)and
+                        (ans_simple_past==base[j].simple_past)and
+                        (ans_past_participle==base[j].past_participle)):
                     print('To poprawna odpowiedz ! trzymaj tak dalej ! :)')
-                    base[i].add_point()
+                    base[j].add_point()
                     input()
 
                 else:
-                    print(f'Blad ! poprawna odpowiedz : {base[i].infinitive} - {base[i].simple_past} - {base[i].past_participle}')
+                    print(f'Blad ! poprawna odpowiedz : {base[j].infinitive} - {base[j].simple_past} - {base[j].past_participle}')
                     base[i].subtract_point()
                     input()
 
 
 
-Quiz()
