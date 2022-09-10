@@ -1,13 +1,27 @@
 from random import randint
 from model import (Base, session,
                     Lern, engine)
+import os
+
 
 
 def session_set(dic):
 
     set = []
     for i in range(0,20):
-        set.append(dic[randint(0,len(dic)-1)])
+
+     duplic = True
+
+     while duplic:
+
+        j=dic[randint(0,len(dic)-1)]
+        if (j not in set):
+           set.append(j)
+           duplic=False
+
+        else:
+           pass
+
 
     return set
 
@@ -17,17 +31,17 @@ def session_set(dic):
 class Quiz():
 
     def __init__(self,dic):
-        set=session_set(dic)
-        while True:
 
+        while True:
+            set = session_set(dic)
             for i in range(0,len(set)):
 
                 print(f'\nPytanie nr.{i+1}')
                 ans_infinitive =''
                 ans_simple_past =''
                 ans_past_participle =''
-                j = randint(0,len(set)-1)
-                print(f'\r{set[j].polish} -  ')
+
+                print(f'\r{set[i].polish} -  ')
 
 
                 ans_infinitive=input()
@@ -36,26 +50,28 @@ class Quiz():
 
                 print(f'to {ans_infinitive} - {ans_simple_past} - {ans_past_participle} ')
 
-                if ((ans_infinitive==set[j].infinitive)and
-                        (ans_simple_past==set[j].simple_past)and
-                        (ans_past_participle==set[j].past_participle)):
+                if ((ans_infinitive==set[i].infinitive)and
+                        (ans_simple_past==set[i].simple_past)and
+                        (ans_past_participle==set[i].past_participle)):
                     print('To poprawna odpowiedz ! trzymaj tak dalej ! :)')
-                    set[j].add_point()
-                    addpoint=session.query(Lern).filter(Lern.infinitive==set[j].infinitive).first()
-                    addpoint.point = set[j].point
-                    print(set[j].point)
+                    set[i].add_point()
+                    addpoint=session.query(Lern).filter(Lern.infinitive==set[i].infinitive).first()
+                    addpoint.point = set[i].point
+                    print(set[i].point)
                     session.commit()
+
 
                     input()
 
                 else:
-                    print(f'Blad ! poprawna odpowiedz : {set[j].infinitive} - {set[j].simple_past} - {set[j].past_participle}')
+                    print(f'Blad ! poprawna odpowiedz : {set[i].infinitive} - {set[i].simple_past} - {set[i].past_participle}')
                     set[i].subtract_point()
-                    addpoint = session.query(Lern).filter(Lern.infinitive == set[j].infinitive).first()
-                    addpoint.point = set[j].point
-                    print(set[j].point)
+                    addpoint = session.query(Lern).filter(Lern.infinitive == set[i].infinitive).first()
+                    addpoint.point = set[i].point
+                    print(set[i].point)
                     session.commit()
                     input()
+
 
 
 

@@ -7,6 +7,8 @@ class Word():
     def add_point(self):
         self.point=self.point+1
 
+
+
     def subtract_point(self):
         self.point=self.point-1
 
@@ -17,6 +19,7 @@ class Word():
         self.simple_past = simple_past
         self.past_participle = past_participle
         self.point = 0
+
 
     def __repr__(self):
         return f'''\nsłowo : {self.polish}
