@@ -32,6 +32,6 @@ if __name__ == '__main__':
 dic=[]
 
 for word in session.query(Lern):
-    dic.append(Word(word.polish, word.infinitive, word.simple_past, word.past_participle))
+    dic.append(Word(word.polish, word.infinitive, word.simple_past, word.past_participle, word.point))
 
 

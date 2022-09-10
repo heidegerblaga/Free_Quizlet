@@ -13,12 +13,12 @@ class Word():
         self.point=self.point-1
 
 
-    def __init__(self,polish,infinitive,simple_past,past_participle):
+    def __init__(self,polish,infinitive,simple_past,past_participle,point):
         self.polish = polish
         self.infinitive = infinitive
         self.simple_past = simple_past
         self.past_participle = past_participle
-        self.point = 0
+        self.point = point
 
 
     def __repr__(self):
