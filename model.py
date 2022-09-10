@@ -2,6 +2,7 @@ from sqlalchemy import (create_engine,Column,
                         Integer,String,Date)
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
+from Word import Word
 
 
 
@@ -28,11 +29,9 @@ if __name__ == '__main__':
     Base.metadata.create_all(engine)
 
 
-word = session.query(Lern).filter(Lern.id == 66).first()
-word.polish = 'opierac sie'
-word.infinitive = 'leaned'
-word.simple_past = 'leande'
-word.past_participle = 'leande'
+dic=[]
+
+for word in session.query(Lern):
+    dic.append(Word(word.polish, word.infinitive, word.simple_past, word.past_participle))
 
 
-session.commit()
