@@ -5,11 +5,14 @@ class Word():
 
 
     def add_point(self):
+
+      if(self.point<5):
         self.point=self.point+1
 
 
 
     def subtract_point(self):
+       if (self.point > -5):
         self.point=self.point-1
 
 
