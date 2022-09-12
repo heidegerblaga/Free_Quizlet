@@ -6,5 +6,4 @@ from model import (Base, session,
 
 if __name__ == '__main__':
 
-    print(dic[1].point)
     Quiz(dic)

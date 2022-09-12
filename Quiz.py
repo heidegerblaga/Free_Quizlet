@@ -15,10 +15,15 @@ import math
 def session_set(dic):
 
     set = []
+    pnt = []
+
+    for i in range(0, len(dic) - 1):
+        pnt.append(dic[i].point)
+
 
     while len(set)<20:
        for i in range(0,len(dic)-1):
-        normalVar = math.floor(np.random.normal(-1, 5, 1) / 2)
+        normalVar = math.floor(np.random.normal(min(pnt)+1, 5, 1) / 2)
 
         if ((dic[i].point==normalVar)and(dic[i] not in set)and(len(set)<20)):
             set.append(dic[i])
@@ -87,7 +92,10 @@ class Quiz():
                         \r2.Nie''')
             choice = input()
             if choice == 2:
-             cnt = False
+
+               break
+
+            cnt=False
 
 
 
