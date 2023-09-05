@@ -3,14 +3,15 @@ from sqlalchemy import (create_engine,Column,
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from Word import Word
+from psql import engine
 
 
 
-engine = create_engine('sqlite:///learning.db',echo=False)
 Session = sessionmaker(bind=engine)
 session = Session()
 Base = declarative_base()
 
+dbConnection = engine.connect()
 
 
 class Lern(Base):

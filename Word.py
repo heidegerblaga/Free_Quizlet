@@ -3,7 +3,6 @@
 class Word():
 
 
-
     def add_point(self):
 
       if(self.point<5):
