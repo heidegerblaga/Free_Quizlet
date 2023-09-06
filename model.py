@@ -25,6 +25,14 @@ class Lern(Base):
     past_participle = Column('Past participle', String)
     point = Column('Knowlege', Integer)
 
+class Progres(Base):
+
+    __tablename__='progres'
+
+    id = Column(Integer, primary_key=True)
+    count = Column('count', Integer)
+
+
 
 if __name__ == '__main__':
     Base.metadata.create_all(engine)
@@ -32,18 +40,10 @@ if __name__ == '__main__':
 
 dic=[]
 
-for i in range(77,102):
 
-    stmt = (
-        update(Lern).
-            where(Lern.id == i).
-            values(Knowlege=0)
-    )
 
 session.commit()
 
 for word in session.query(Lern):
 
     dic.append(Word(word.polish, word.infinitive, word.simple_past, word.past_participle, word.point))
-
-
