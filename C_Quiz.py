@@ -20,7 +20,7 @@ def session_set(dic):
 
     while len(set)<20:
        for i in range(0,len(dic)-1):
-        normalVar = math.floor(np.random.normal(min(pnt)+1, 5, 1)/2 )
+        normalVar = math.floor(np.random.normal(min(pnt), 5, 1) )
 
         if ((dic[i].point==normalVar)and(dic[i] not in set)and(len(set)<20)):
             set.append(dic[i])

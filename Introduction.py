@@ -7,3 +7,5 @@ st.markdown(''' I love learning foreign languages. I've been interested in lingu
 The Austrian philosopher Ludwig Wittgenstein used to say that the limits of our world are the limits of our language.
  However, I always encountered a barrier in the form of irregular verbs after mastering the basic grammar rules and structure of a learned language. 
  That's precisely why I created this application—to make this task easier for myself and to monitor my progress.''')
+
+

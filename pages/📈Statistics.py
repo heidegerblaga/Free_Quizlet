@@ -42,3 +42,6 @@ st.bar_chart(
     width=100
 )
 
+st.title('Most common mistakes')
+
+st.dataframe( df.sort_values(by='Knowlege', ascending=True).head(10))
